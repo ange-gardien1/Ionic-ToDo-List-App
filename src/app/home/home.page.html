@@ -1,0 +1,53 @@
+
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>
+      Task List
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<br>
+<ion-content>
+  <div id="container">
+      <ion-toolbar color="primary">
+        <p>
+          Ma Day Task ToDo List
+        </p>
+      </ion-toolbar>
+      <ion-list *ngFor="let task of IncompletedtaskList">
+        <ion-item-sliding>
+          <ion-item>
+            <ion-label>
+              <h2>{{ task.title }}</h2>
+            </ion-label>
+            <ion-checkbox [checked]="task.completed" (ionChange)="toggleTaskCompletion(task)"></ion-checkbox>
+          </ion-item>
+      
+          <ion-item-options side="end">
+            <ion-item-option color="danger" (click)="deleteTask(task)">Delete</ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+      <ion-toolbar color="primary">
+        <p>
+          Complete
+        </p>
+      </ion-toolbar>
+      <ion-list *ngFor="let task of CompletedtaskList">
+        <ion-item-sliding>
+          <ion-item>
+            <ion-label>
+              <h2>{{ task.title }}</h2>
+            </ion-label>
+            <ion-checkbox [checked]="task.completed" (ionChange)="toggleTaskCompletion(task)"></ion-checkbox>
+          </ion-item>
+      
+          <ion-item-options side="end">
+            <ion-item-option color="danger" (click)="deleteTask(task)">Delete</ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+      <ion-icon id="mine" name="add-circle" color="secondary" (click)="prompt()"></ion-icon>
+ 
+  </div>
+</ion-content>
